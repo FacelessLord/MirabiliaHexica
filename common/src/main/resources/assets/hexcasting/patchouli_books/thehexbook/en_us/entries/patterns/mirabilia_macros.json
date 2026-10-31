@@ -1,0 +1,43 @@
+{
+  "name": "mirabilia.entry.macros",
+  "category": "hexcasting:patterns",
+  "icon": "minecraft:writable_book",
+  "sortnum": 11,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.macros.1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.macros.2"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:macro/bind",
+      "anchor": "mirabilia:macro/bind",
+      "input": "pattern, list",
+      "output": "",
+      "text": "mirabilia.page.macros.bind"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:macro/release",
+      "anchor": "mirabilia:macro/release",
+      "input": "pattern",
+      "output": "",
+      "text": "mirabilia.page.macros.release"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:macro/list",
+      "anchor": "mirabilia:macro/list",
+      "input": "",
+      "output": "list",
+      "text": "mirabilia.page.macros.list"
+    }
+  ],
+  "flag": "mirabilia:macros"
+}

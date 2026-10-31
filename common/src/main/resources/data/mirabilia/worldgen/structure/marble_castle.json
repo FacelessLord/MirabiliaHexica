@@ -1,0 +1,7 @@
+{
+  "type": "mirabilia:marble_castle",
+  "biomes": "#mirabilia:has_structure/marble_castle",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "beard_thin"
+}

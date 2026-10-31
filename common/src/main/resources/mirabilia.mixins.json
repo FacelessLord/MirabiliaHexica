@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.mirabiliahexica.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "MixinCastingEnvironment",
+    "MixinBuddingAmethystBlock"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "MixinLevelRenderer",
+    "MixinPlayerRenderer",
+    "MixinItemInHandRenderer",
+    "MixinClientLanguage"
+  ]
+}

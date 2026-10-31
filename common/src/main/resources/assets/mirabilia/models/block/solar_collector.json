@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "mirabilia:block/solar_collector_top",
+    "side": "mirabilia:block/solar_collector_side",
+    "bottom": "mirabilia:block/solar_collector_bottom"
+  }
+}

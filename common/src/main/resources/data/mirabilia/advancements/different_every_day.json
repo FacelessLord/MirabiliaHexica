@@ -1,0 +1,40 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mirabilia:feature",
+      "feature": "sun_caltrop"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "mirabilia:feature",
+      "feature": "sun_caltrop"
+    }
+  ],
+  "parent": "mirabilia:caltrop",
+  "display": {
+    "icon": {
+      "item": "minecraft:clock"
+    },
+    "title": {
+      "translate": "advancements.mirabilia.different_every_day.title"
+    },
+    "description": {
+      "translate": "advancements.mirabilia.different_every_day.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mirabilia:feature",
+      "feature": "imbue_lens"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "mirabilia:feature",
+      "feature": "imbue_lens"
+    }
+  ],
+  "parent": "mirabilia:root",
+  "display": {
+    "icon": {
+      "item": "hexcasting:lens"
+    },
+    "title": {
+      "translate": "advancements.mirabilia.inscription.title"
+    },
+    "description": {
+      "translate": "advancements.mirabilia.inscription.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

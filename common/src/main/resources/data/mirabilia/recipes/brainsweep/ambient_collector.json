@@ -1,0 +1,28 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mirabilia:feature",
+      "feature": "ambient_collector"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "mirabilia:feature",
+      "feature": "ambient_collector"
+    }
+  ],
+  "type": "hexcasting:brainsweep",
+  "blockIn": {
+    "type": "block",
+    "block": "minecraft:budding_amethyst"
+  },
+  "cost": 1000000,
+  "entityIn": {
+    "type": "villager",
+    "minLevel": 3,
+    "profession": "farmer"
+  },
+  "result": {
+    "name": "mirabilia:ambient_collector"
+  }
+}

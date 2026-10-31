@@ -1,0 +1,15 @@
+{
+  "name": "mirabilia.entry.dreams_of_glass",
+  "category": "hexcasting:basics",
+  "icon": "minecraft:red_bed",
+  "sortnum": 9,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.dreams_of_glass"
+    }
+  ],
+  "flag": "mirabilia:tanakos_world"
+}

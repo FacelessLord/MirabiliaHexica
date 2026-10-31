@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "MM",
+    "MM"
+  ],
+  "key": {
+    "M": {
+      "item": "mirabilia:marble"
+    }
+  },
+  "result": {
+    "item": "mirabilia:polished_marble",
+    "count": 4
+  }
+}

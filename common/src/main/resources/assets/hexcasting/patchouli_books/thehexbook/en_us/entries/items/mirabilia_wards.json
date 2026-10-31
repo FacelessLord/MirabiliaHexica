@@ -1,0 +1,47 @@
+{
+  "name": "mirabilia.entry.wards",
+  "category": "hexcasting:items",
+  "icon": "mirabilia:warding_stone",
+  "sortnum": 3,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.wards.1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.wards.2"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "mirabilia:warding_stone",
+      "text": "mirabilia.page.wards.warding_recipe",
+      "flag": "mirabilia:wards_dream"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "mirabilia:warding_stone_plain",
+      "text": "mirabilia.page.wards.warding_recipe",
+      "flag": "mirabilia:wards_plain"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.wards.3"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "mirabilia:silence_stone",
+      "text": "mirabilia.page.wards.silence_recipe",
+      "flag": "mirabilia:wards_dream"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "mirabilia:silence_stone_plain",
+      "text": "mirabilia.page.wards.silence_recipe",
+      "flag": "mirabilia:wards_plain"
+    }
+  ],
+  "flag": "mirabilia:warding_stones"
+}

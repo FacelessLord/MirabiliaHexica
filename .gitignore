@@ -1,0 +1,25 @@
+# Gradle / build output
+.gradle/
+build/
+out/
+bin/
+classes/
+run/
+.architectury-transformer/
+
+# IntelliJ IDEA (the project is opened from build.gradle.kts, so nothing here needs to be committed)
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse / VS Code
+.classpath
+.project
+.settings/
+.vscode/
+*.launch
+
+# OS
+.DS_Store
+Thumbs.db

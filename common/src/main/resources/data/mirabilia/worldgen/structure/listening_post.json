@@ -1,0 +1,7 @@
+{
+  "type": "mirabilia:listening_post",
+  "biomes": "#mirabilia:has_structure/listening_post",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "none"
+}

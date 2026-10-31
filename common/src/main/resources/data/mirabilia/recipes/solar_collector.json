@@ -1,0 +1,38 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mirabilia:feature",
+      "feature": "solar_collector_dream"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "mirabilia:feature",
+      "feature": "solar_collector_dream"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "GGG",
+    "CDC",
+    "YYY"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "C": {
+      "item": "hexcasting:charged_amethyst"
+    },
+    "D": {
+      "item": "minecraft:daylight_detector"
+    },
+    "Y": {
+      "item": "mirabilia:glyphstone"
+    }
+  },
+  "result": {
+    "item": "mirabilia:solar_collector"
+  }
+}

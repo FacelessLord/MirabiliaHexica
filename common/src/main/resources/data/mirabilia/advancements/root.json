@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "item": "hexcasting:charged_amethyst"
+    },
+    "title": {
+      "translate": "advancements.mirabilia.root.title"
+    },
+    "description": {
+      "translate": "advancements.mirabilia.root.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "background": "mirabilia:textures/block/marble.png"
+  },
+  "criteria": {
+    "has": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "mirabilia:all"
+          }
+        ]
+      }
+    },
+    "charged_air": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "has",
+      "charged_air"
+    ]
+  ]
+}

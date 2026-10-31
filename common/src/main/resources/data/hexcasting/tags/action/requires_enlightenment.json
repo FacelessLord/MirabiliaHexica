@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "mirabilia:craft/greater_lens",
+    "mirabilia:join_phials",
+    "mirabilia:blood_charge",
+    "mirabilia:imbue_lens",
+    "mirabilia:imbue_armor",
+    "mirabilia:imbue_tool"
+  ]
+}

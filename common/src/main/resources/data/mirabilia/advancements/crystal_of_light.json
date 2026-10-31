@@ -1,0 +1,40 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mirabilia:feature",
+      "feature": "crystal_of_light"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "mirabilia:feature",
+      "feature": "crystal_of_light"
+    }
+  ],
+  "parent": "mirabilia:noon",
+  "display": {
+    "icon": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "title": {
+      "translate": "advancements.mirabilia.crystal_of_light.title"
+    },
+    "description": {
+      "translate": "advancements.mirabilia.crystal_of_light.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

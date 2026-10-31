@@ -1,0 +1,46 @@
+{
+  "name": "mirabilia.entry.entity_states",
+  "category": "hexcasting:patterns",
+  "icon": "minecraft:rabbit_foot",
+  "sortnum": 7,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.entity_states.intro"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:get_entity_sneaking",
+      "anchor": "mirabilia:get_entity_sneaking",
+      "input": "entity",
+      "output": "bool",
+      "text": "mirabilia.page.entity_states.get_entity_sneaking"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:get_entity_jumping",
+      "anchor": "mirabilia:get_entity_jumping",
+      "input": "entity",
+      "output": "bool",
+      "text": "mirabilia.page.entity_states.get_entity_jumping"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:get_entity_health",
+      "anchor": "mirabilia:get_entity_health",
+      "input": "entity",
+      "output": "number | null",
+      "text": "mirabilia.page.entity_states.get_entity_health"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:get_entity_max_health",
+      "anchor": "mirabilia:get_entity_max_health",
+      "input": "entity",
+      "output": "number | null",
+      "text": "mirabilia.page.entity_states.get_entity_max_health"
+    }
+  ]
+}

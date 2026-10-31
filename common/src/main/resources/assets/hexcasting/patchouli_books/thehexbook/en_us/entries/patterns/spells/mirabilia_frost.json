@@ -1,0 +1,30 @@
+{
+  "name": "mirabilia.entry.frost",
+  "category": "hexcasting:patterns/spells",
+  "icon": "minecraft:snowball",
+  "sortnum": 2,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.frost.intro"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:freeze",
+      "anchor": "mirabilia:freeze",
+      "input": "vector, number",
+      "output": "",
+      "text": "mirabilia.page.frost.freeze"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:thaw",
+      "anchor": "mirabilia:thaw",
+      "input": "vector, number",
+      "output": "",
+      "text": "mirabilia.page.frost.thaw"
+    }
+  ]
+}

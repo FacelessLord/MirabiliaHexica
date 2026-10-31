@@ -1,0 +1,66 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "mirabilia:block/glyphstone_0"
+      },
+      {
+        "model": "mirabilia:block/glyphstone_0",
+        "y": 90
+      },
+      {
+        "model": "mirabilia:block/glyphstone_0",
+        "y": 180
+      },
+      {
+        "model": "mirabilia:block/glyphstone_0",
+        "y": 270
+      },
+      {
+        "model": "mirabilia:block/glyphstone_1"
+      },
+      {
+        "model": "mirabilia:block/glyphstone_1",
+        "y": 90
+      },
+      {
+        "model": "mirabilia:block/glyphstone_1",
+        "y": 180
+      },
+      {
+        "model": "mirabilia:block/glyphstone_1",
+        "y": 270
+      },
+      {
+        "model": "mirabilia:block/glyphstone_2"
+      },
+      {
+        "model": "mirabilia:block/glyphstone_2",
+        "y": 90
+      },
+      {
+        "model": "mirabilia:block/glyphstone_2",
+        "y": 180
+      },
+      {
+        "model": "mirabilia:block/glyphstone_2",
+        "y": 270
+      },
+      {
+        "model": "mirabilia:block/glyphstone_3"
+      },
+      {
+        "model": "mirabilia:block/glyphstone_3",
+        "y": 90
+      },
+      {
+        "model": "mirabilia:block/glyphstone_3",
+        "y": 180
+      },
+      {
+        "model": "mirabilia:block/glyphstone_3",
+        "y": 270
+      }
+    ]
+  }
+}

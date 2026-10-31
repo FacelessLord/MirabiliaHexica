@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "mirabilia:block/deep_dream_glass"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "name": "mirabilia.entry.standing",
+  "category": "hexcasting:patterns/spells",
+  "icon": "minecraft:lodestone",
+  "sortnum": 4,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.standing.intro"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.standing.rules"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:standing/raise",
+      "anchor": "mirabilia:standing/raise",
+      "input": "list, vector, number",
+      "output": "",
+      "text": "mirabilia.page.standing.raise"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:standing/raise_entity",
+      "anchor": "mirabilia:standing/raise_entity",
+      "input": "list, entity, number",
+      "output": "",
+      "text": "mirabilia.page.standing.raise_entity"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:standing/remaining",
+      "anchor": "mirabilia:standing/remaining",
+      "input": "vector | entity",
+      "output": "number | null",
+      "text": "mirabilia.page.standing.remaining"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:standing/feed",
+      "anchor": "mirabilia:standing/feed",
+      "input": "vector | entity, num",
+      "output": "",
+      "text": "mirabilia.page.standing.feed"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:standing/dispel",
+      "anchor": "mirabilia:standing/dispel",
+      "input": "vector | entity",
+      "output": "",
+      "text": "mirabilia.page.standing.dispel"
+    }
+  ],
+  "flag": "mirabilia:standing_spells"
+}

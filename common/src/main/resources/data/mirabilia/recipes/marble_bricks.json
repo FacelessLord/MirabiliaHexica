@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "PP",
+    "PP"
+  ],
+  "key": {
+    "P": {
+      "item": "mirabilia:polished_marble"
+    }
+  },
+  "result": {
+    "item": "mirabilia:marble_bricks",
+    "count": 4
+  }
+}

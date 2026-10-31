@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "mirabilia",
+  "version": "${version}",
+  "name": "Mirabilia Hexica",
+  "description": "A dream world, ambient media and its machines, imbued lenses, armor and tools, and more for Hex Casting.",
+  "authors": [],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "com.mirabiliahexica.fabric.FabricMirabilia"
+      }
+    ],
+    "client": [
+      {
+        "adapter": "kotlin",
+        "value": "com.mirabiliahexica.fabric.FabricMirabiliaClient"
+      }
+    ]
+  },
+  "mixins": [
+    "mirabilia.mixins.json"
+  ],
+  "depends": {
+    "minecraft": "${minecraft}",
+    "fabricloader": ">=${fabricLoader}",
+    "fabric-api": ">=${fabricApi}",
+    "fabric-language-kotlin": ">=${kotlinFabric}",
+    "architectury": ">=${architectury}",
+    "hexcasting": ">=${hexcasting}"
+  },
+  "icon": "assets/mirabilia/icon.png",
+  "contact": {
+    "homepage": "https://modrinth.com/mod/mirabilia-hexica"
+  }
+}

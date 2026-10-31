@@ -1,0 +1,40 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mirabilia:feature",
+      "feature": "dream_pull"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "mirabilia:feature",
+      "feature": "dream_pull"
+    }
+  ],
+  "parent": "mirabilia:glass_dream",
+  "display": {
+    "icon": {
+      "item": "mirabilia:deep_dream_glass"
+    },
+    "title": {
+      "translate": "advancements.mirabilia.fell_through.title"
+    },
+    "description": {
+      "translate": "advancements.mirabilia.fell_through.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

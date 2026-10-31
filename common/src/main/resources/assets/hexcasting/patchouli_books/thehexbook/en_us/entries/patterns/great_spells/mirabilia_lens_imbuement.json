@@ -1,0 +1,35 @@
+{
+  "name": "mirabilia.entry.lens_imbuement",
+  "category": "hexcasting:patterns/great_spells",
+  "icon": "mirabilia:greater_lens",
+  "sortnum": 20,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.lens_imbuement.intro"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.lens_imbuement.cost"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:imbue_lens",
+      "anchor": "mirabilia:imbue_lens",
+      "input": "entity, list of patterns",
+      "output": "",
+      "text": "mirabilia.page.lens_imbuement.imbue_lens"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.lens_imbuement.example"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.lens_imbuement.sight"
+    }
+  ],
+  "flag": "mirabilia:imbue_lens"
+}

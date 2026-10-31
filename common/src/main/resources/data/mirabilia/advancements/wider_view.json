@@ -1,0 +1,37 @@
+{
+  "parent": "mirabilia:root",
+  "display": {
+    "icon": {
+      "item": "mirabilia:greater_lens"
+    },
+    "title": {
+      "translate": "advancements.mirabilia.wider_view.title"
+    },
+    "description": {
+      "translate": "advancements.mirabilia.wider_view.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "mirabilia:greater_lens"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has"
+    ]
+  ]
+}

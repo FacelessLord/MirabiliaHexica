@@ -1,0 +1,40 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mirabilia:feature",
+      "feature": "solar_collector"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "mirabilia:feature",
+      "feature": "solar_collector"
+    }
+  ],
+  "parent": "mirabilia:noon",
+  "display": {
+    "icon": {
+      "item": "minecraft:beacon"
+    },
+    "title": {
+      "translate": "advancements.mirabilia.kind_thoughts.title"
+    },
+    "description": {
+      "translate": "advancements.mirabilia.kind_thoughts.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

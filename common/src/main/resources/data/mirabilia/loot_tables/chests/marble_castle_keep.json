@@ -1,0 +1,241 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 3,
+        "max": 6
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "hexcasting:charged_amethyst",
+          "weight": 20,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 2,
+                "max": 6
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hexcasting:amethyst_dust",
+          "weight": 20,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 6,
+                "max": 16
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:amethyst_shard",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 3,
+                "max": 8
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:echo_shard",
+          "weight": 6,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "mirabilia:polished_marble",
+          "weight": 8,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 4,
+                "max": 12
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hexcasting:quenched_allay_shard",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "hexcasting:scroll",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "hexcasting:pattern_scroll"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hexcasting:ancient_cypher",
+          "weight": 4,
+          "functions": [
+            {
+              "function": "hexcasting:hex_cypher"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:book",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "mirabilia:deepsight": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "mirabilia:feature",
+              "feature": "deepsight"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:empty",
+          "weight": 4
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "mirabilia:media_sources_notes",
+          "weight": 3,
+          "conditions": [
+            {
+              "condition": "mirabilia:feature",
+              "feature": "wellspring_notes_dream"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:empty",
+          "weight": 7
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 1,
+        "max": 2
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "hexcasting:scroll",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{op_id:\"mirabilia:wake\",pattern:{start_dir:1b,angles:[B;1b,1b,5b,1b,1b,0b,1b,1b,5b,1b,1b]}}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hexcasting:scroll",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{op_id:\"mirabilia:will_upward\",pattern:{start_dir:1b,angles:[B;1b,1b,5b,1b,1b,0b,4b,5b]}}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hexcasting:scroll",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{op_id:\"mirabilia:will_apart\",pattern:{start_dir:1b,angles:[B;1b,1b,5b,1b,1b,5b,0b,1b]}}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hexcasting:scroll",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{op_id:\"mirabilia:will_solid\",pattern:{start_dir:1b,angles:[B;1b,1b,5b,1b,1b,5b,4b]}}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hexcasting:scroll",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{op_id:\"mirabilia:dream_gaze\",pattern:{start_dir:1b,angles:[B;1b,1b,5b,1b,1b,0b,0b]}}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hexcasting:scroll",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{op_id:\"mirabilia:dream_footing\",pattern:{start_dir:1b,angles:[B;1b,1b,5b,1b,1b,2b,0b]}}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hexcasting:scroll",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{op_id:\"mirabilia:dream_bearing\",pattern:{start_dir:1b,angles:[B;1b,1b,5b,1b,1b,0b,1b]}}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

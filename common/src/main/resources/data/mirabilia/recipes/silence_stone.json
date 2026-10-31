@@ -1,0 +1,35 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mirabilia:feature",
+      "feature": "wards_dream"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "mirabilia:feature",
+      "feature": "wards_dream"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "GAG",
+    "AEA",
+    "GAG"
+  ],
+  "key": {
+    "G": {
+      "item": "mirabilia:deep_dream_glass"
+    },
+    "A": {
+      "item": "hexcasting:charged_amethyst"
+    },
+    "E": {
+      "item": "minecraft:echo_shard"
+    }
+  },
+  "result": {
+    "item": "mirabilia:silence_stone"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mirabilia:feature",
+      "feature": "imbue_armor_or_tool"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "mirabilia:feature",
+      "feature": "imbue_armor_or_tool"
+    }
+  ],
+  "parent": "mirabilia:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:iron_chestplate"
+    },
+    "title": {
+      "translate": "advancements.mirabilia.well_armed.title"
+    },
+    "description": {
+      "translate": "advancements.mirabilia.well_armed.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

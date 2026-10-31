@@ -1,0 +1,40 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mirabilia:feature",
+      "feature": "glass_man"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "mirabilia:feature",
+      "feature": "glass_man"
+    }
+  ],
+  "parent": "mirabilia:a_deal",
+  "display": {
+    "icon": {
+      "item": "minecraft:bell"
+    },
+    "title": {
+      "translate": "advancements.mirabilia.glass_village.title"
+    },
+    "description": {
+      "translate": "advancements.mirabilia.glass_village.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

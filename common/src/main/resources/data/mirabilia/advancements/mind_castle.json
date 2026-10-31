@@ -1,0 +1,53 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mirabilia:feature",
+      "feature": "tanakos_world"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "mirabilia:feature",
+      "feature": "tanakos_world"
+    }
+  ],
+  "parent": "mirabilia:glass_dream",
+  "display": {
+    "icon": {
+      "item": "mirabilia:polished_marble"
+    },
+    "title": {
+      "translate": "advancements.mirabilia.mind_castle.title"
+    },
+    "description": {
+      "translate": "advancements.mirabilia.mind_castle.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "inside": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "mirabilia:marble_castle"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "inside"
+    ]
+  ]
+}

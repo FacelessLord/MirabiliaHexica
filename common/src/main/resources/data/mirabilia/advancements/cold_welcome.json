@@ -1,0 +1,40 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mirabilia:feature",
+      "feature": "tanakos_world"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "mirabilia:feature",
+      "feature": "tanakos_world"
+    }
+  ],
+  "parent": "mirabilia:glass_dream",
+  "display": {
+    "icon": {
+      "item": "minecraft:powder_snow_bucket"
+    },
+    "title": {
+      "translate": "advancements.mirabilia.cold_welcome.title"
+    },
+    "description": {
+      "translate": "advancements.mirabilia.cold_welcome.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

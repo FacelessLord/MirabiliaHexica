@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "mirabilia:warding_stone",
+    "mirabilia:silence_stone",
+    "mirabilia:dream_glass",
+    "mirabilia:dusky_dream_glass",
+    "mirabilia:deep_dream_glass",
+    "mirabilia:marble",
+    "mirabilia:polished_marble",
+    "mirabilia:marble_bricks",
+    "mirabilia:inkstone",
+    "mirabilia:glyphstone",
+    "mirabilia:media_discharger",
+    "mirabilia:ambient_collector",
+    "mirabilia:solar_collector",
+    "mirabilia:crystallizer"
+  ]
+}

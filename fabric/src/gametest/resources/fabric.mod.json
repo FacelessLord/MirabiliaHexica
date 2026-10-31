@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "mirabilia_gametest",
+  "version": "1.0.0",
+  "name": "Mirabilia Hexica GameTests",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-gametest": [
+      { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.PatternTests" },
+      { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.LensTests" },
+      { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.PhialTests" },
+      { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.StandingTests" },
+      { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.LensImbuementTests" },
+      { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.StringTests" },
+      { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.GreatSpellTests" },
+      { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.WardTests" },
+      { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.DreamTests" },
+      { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.MediaSourceTests" },
+      { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.DreamStructureTests" },
+      { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.DreamLibraryTests" },
+      { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.ItemImbuementTests" },
+      { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.GlassManTests" },
+      { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.AmbientMediaTests" },
+      { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.MachineTests" },
+      { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.AdvancementTests" },
+      { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.MacroTests" },
+      { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.TrinketTests" },
+      { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.DreamLoreTests" },
+      { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.SpawnEggTests" },
+      { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.FeatureTests" },
+      { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.MindTests" }
+    ]
+  },
+  "mixins": ["mirabilia_gametest.mixins.json"],
+  "depends": {
+    "mirabilia": "*",
+    "fabric-gametest-api-v1": "*"
+  }
+}

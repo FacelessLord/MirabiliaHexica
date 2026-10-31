@@ -1,0 +1,47 @@
+{
+  "name": "mirabilia.entry.item_imbuement",
+  "category": "hexcasting:patterns/great_spells",
+  "icon": "minecraft:iron_chestplate",
+  "sortnum": 25,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.item_imbuement.intro",
+      "flag": "mirabilia:imbue_armor_or_tool"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.item_imbuement.media",
+      "flag": "mirabilia:imbue_armor_or_tool"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:imbue_armor",
+      "anchor": "mirabilia:imbue_armor",
+      "input": "entity, list of patterns",
+      "output": "",
+      "text": "mirabilia.page.item_imbuement.imbue_armor",
+      "flag": "mirabilia:imbue_armor"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:imbue_tool",
+      "anchor": "mirabilia:imbue_tool",
+      "input": "entity, list of patterns",
+      "output": "",
+      "text": "mirabilia.page.item_imbuement.imbue_tool",
+      "flag": "mirabilia:imbue_tool"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:recharge_imbued",
+      "anchor": "mirabilia:recharge_imbued",
+      "input": "entity | null",
+      "output": "",
+      "text": "mirabilia.page.item_imbuement.recharge"
+    }
+  ],
+  "flag": "mirabilia:recharge_imbued"
+}

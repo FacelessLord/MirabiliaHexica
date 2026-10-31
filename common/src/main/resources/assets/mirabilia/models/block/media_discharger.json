@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "mirabilia:block/media_discharger_top",
+    "side": "mirabilia:block/media_discharger_side",
+    "bottom": "mirabilia:block/media_discharger_bottom"
+  }
+}

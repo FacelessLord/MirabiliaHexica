@@ -1,0 +1,51 @@
+{
+  "name": "mirabilia.entry.wellsprings",
+  "category": "hexcasting:patterns",
+  "icon": "hexcasting:battery",
+  "sortnum": 9,
+  "advancement": "mirabilia:media_sources",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.wellsprings.1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.wellsprings.2"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:source/bind",
+      "anchor": "mirabilia:source/bind",
+      "input": "vector | entity",
+      "output": "",
+      "text": "mirabilia.page.source.bind"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:source/unbind",
+      "anchor": "mirabilia:source/unbind",
+      "input": "",
+      "output": "",
+      "text": "mirabilia.page.source.unbind"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:source/media",
+      "anchor": "mirabilia:source/media",
+      "input": "",
+      "output": "number",
+      "text": "mirabilia.page.source.media"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:source/tether",
+      "anchor": "mirabilia:source/tether",
+      "input": "vector | entity | null",
+      "output": "",
+      "text": "mirabilia.page.source.tether"
+    }
+  ],
+  "flag": "mirabilia:wellsprings"
+}

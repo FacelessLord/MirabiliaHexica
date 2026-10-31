@@ -1,0 +1,23 @@
+{
+  "name": "mirabilia.entry.ward_armor",
+  "category": "hexcasting:patterns/spells",
+  "icon": "minecraft:iron_chestplate",
+  "sortnum": 4,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:ward_armor",
+      "anchor": "mirabilia:ward_armor",
+      "input": "",
+      "output": "",
+      "text": "mirabilia.page.ward_armor.1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.ward_armor.2"
+    }
+  ],
+  "flag": "mirabilia:ward_armor"
+}

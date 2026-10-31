@@ -1,0 +1,19 @@
+{
+  "name": "hexcasting.action.mirabilia:blood_charge",
+  "category": "hexcasting:patterns/great_spells",
+  "icon": "minecraft:redstone",
+  "sortnum": 23,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:blood_charge",
+      "anchor": "mirabilia:blood_charge",
+      "input": "entity, number",
+      "output": "",
+      "text": "mirabilia.page.phials.blood_charge"
+    }
+  ],
+  "flag": "mirabilia:blood_charge"
+}

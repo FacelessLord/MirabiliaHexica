@@ -1,0 +1,22 @@
+{
+  "name": "hexcasting.action.mirabilia:craft/greater_lens",
+  "category": "hexcasting:patterns/great_spells",
+  "icon": "mirabilia:greater_lens",
+  "sortnum": 21,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:craft/greater_lens",
+      "anchor": "mirabilia:craft/greater_lens",
+      "input": "",
+      "output": "",
+      "text": "mirabilia.page.craft_greater_lens.1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.craft_greater_lens.2"
+    }
+  ]
+}

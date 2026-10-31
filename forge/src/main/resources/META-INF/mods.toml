@@ -1,0 +1,39 @@
+modLoader = "kotlinforforge"
+loaderVersion = "[${kotlinForge},)"
+license = "MIT"
+
+[[mods]]
+modId = "mirabilia"
+version = "${version}"
+displayName = "Mirabilia Hexica"
+description = "A dream world, ambient media and its machines, imbued lenses, armor and tools, and more for Hex Casting."
+logoFile = "assets/mirabilia/icon.png"
+displayURL = "https://modrinth.com/mod/mirabilia-hexica"
+
+[[dependencies.mirabilia]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.mirabilia]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[${minecraft},1.20.2)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.mirabilia]]
+modId = "architectury"
+mandatory = true
+versionRange = "[${architectury},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.mirabilia]]
+modId = "hexcasting"
+mandatory = true
+versionRange = "[${hexcasting},)"
+ordering = "AFTER"
+side = "BOTH"

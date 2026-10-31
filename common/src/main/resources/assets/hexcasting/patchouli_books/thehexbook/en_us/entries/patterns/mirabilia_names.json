@@ -1,0 +1,58 @@
+{
+  "name": "mirabilia.entry.names",
+  "category": "hexcasting:patterns",
+  "icon": "minecraft:name_tag",
+  "sortnum": 6,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.names.intro"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:get_block_solid",
+      "anchor": "mirabilia:get_block_solid",
+      "input": "vector",
+      "output": "bool",
+      "text": "mirabilia.page.names.get_block_solid"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:string/name",
+      "anchor": "mirabilia:string/name",
+      "input": "entity",
+      "output": "string",
+      "text": "mirabilia.page.strings.name",
+      "flag": "mirabilia:string_patterns"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:string/block_name",
+      "anchor": "mirabilia:string/block_name",
+      "input": "vector",
+      "output": "string",
+      "text": "mirabilia.page.names.block_name",
+      "flag": "mirabilia:string_patterns"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:string/equals",
+      "anchor": "mirabilia:string/equals",
+      "input": "string, string",
+      "output": "bool",
+      "text": "mirabilia.page.names.equals",
+      "flag": "mirabilia:string_patterns"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:string/equals_strict",
+      "anchor": "mirabilia:string/equals_strict",
+      "input": "string, string",
+      "output": "bool",
+      "text": "mirabilia.page.names.equals_strict",
+      "flag": "mirabilia:string_patterns"
+    }
+  ]
+}

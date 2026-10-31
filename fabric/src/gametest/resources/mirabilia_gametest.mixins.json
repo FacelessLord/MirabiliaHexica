@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.mirabiliahexica.fabric.gametest.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "MixinGameTestServer"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

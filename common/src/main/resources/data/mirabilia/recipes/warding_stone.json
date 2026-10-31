@@ -1,0 +1,35 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mirabilia:feature",
+      "feature": "wards_dream"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "mirabilia:feature",
+      "feature": "wards_dream"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "DAD",
+    "AMA",
+    "DAD"
+  ],
+  "key": {
+    "D": {
+      "item": "hexcasting:amethyst_dust"
+    },
+    "A": {
+      "item": "hexcasting:charged_amethyst"
+    },
+    "M": {
+      "item": "mirabilia:marble"
+    }
+  },
+  "result": {
+    "item": "mirabilia:warding_stone"
+  }
+}

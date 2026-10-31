@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "mirabilia:marble"
+  },
+  "result": "mirabilia:polished_marble",
+  "count": 1
+}

@@ -1,0 +1,23 @@
+{
+  "name": "hexcasting.action.mirabilia:join_phials",
+  "category": "hexcasting:patterns/great_spells",
+  "icon": "hexcasting:battery",
+  "sortnum": 22,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:join_phials",
+      "anchor": "mirabilia:join_phials",
+      "input": "entity",
+      "output": "",
+      "text": "mirabilia.page.join_phials.1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.join_phials.2"
+    }
+  ],
+  "flag": "mirabilia:join_phials"
+}

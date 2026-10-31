@@ -1,0 +1,139 @@
+{
+  "name": "mirabilia.entry.tanakos_world",
+  "category": "hexcasting:basics",
+  "icon": "mirabilia:dream_glass",
+  "sortnum": 10,
+  "advancement": "mirabilia:glass_dream",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.tanakos_world.1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.tanakos_world.2"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.tanakos_world.3"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.tanakos_world.castles"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.tanakos_world.listening_post"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.tanakos_world.listening_post.2"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.tanakos_world.4"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.tanakos_world.5"
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "mirabilia:lost_dreamer",
+      "text": "mirabilia.page.lost_dreamers"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.tanakos_world.glass_man",
+      "flag": "mirabilia:glass_man"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.tanakos_world.glass_man.2",
+      "flag": "mirabilia:glass_man"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:wake",
+      "anchor": "mirabilia:wake",
+      "input": "",
+      "output": "",
+      "text": "mirabilia.page.wake",
+      "advancement": "mirabilia:dream_lore/wake"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.willing",
+      "advancement": "mirabilia:dream_lore/will_upward"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:dream_gaze",
+      "anchor": "mirabilia:dream_gaze",
+      "input": "",
+      "output": "vector",
+      "text": "mirabilia.page.dream_gaze",
+      "advancement": "mirabilia:dream_lore/dream_gaze"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.dream_senses",
+      "advancement": "mirabilia:dream_lore/dream_footing"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:dream_footing",
+      "anchor": "mirabilia:dream_footing",
+      "input": "",
+      "output": "vector",
+      "text": "mirabilia.page.dream_footing",
+      "advancement": "mirabilia:dream_lore/dream_footing"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:dream_bearing",
+      "anchor": "mirabilia:dream_bearing",
+      "input": "",
+      "output": "vector",
+      "text": "mirabilia.page.dream_bearing",
+      "advancement": "mirabilia:dream_lore/dream_bearing"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:snap_to_axis",
+      "anchor": "mirabilia:snap_to_axis",
+      "input": "vector",
+      "output": "vector",
+      "text": "mirabilia.page.snap_to_axis"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:will_upward",
+      "anchor": "mirabilia:will_upward",
+      "input": "vector",
+      "output": "",
+      "text": "mirabilia.page.will_upward",
+      "advancement": "mirabilia:dream_lore/will_upward"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:will_apart",
+      "anchor": "mirabilia:will_apart",
+      "input": "vector",
+      "output": "",
+      "text": "mirabilia.page.will_apart",
+      "advancement": "mirabilia:dream_lore/will_apart"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:will_solid",
+      "anchor": "mirabilia:will_solid",
+      "input": "vector",
+      "output": "",
+      "text": "mirabilia.page.will_solid",
+      "advancement": "mirabilia:dream_lore/will_solid"
+    }
+  ],
+  "flag": "mirabilia:tanakos_world"
+}

@@ -1,0 +1,24 @@
+{
+  "replace": false,
+  "values": [
+    "mirabilia:greater_lens",
+    "mirabilia:media_sources_notes",
+    "mirabilia:warding_stone",
+    "mirabilia:silence_stone",
+    "mirabilia:dream_glass",
+    "mirabilia:dusky_dream_glass",
+    "mirabilia:deep_dream_glass",
+    "mirabilia:marble",
+    "mirabilia:polished_marble",
+    "mirabilia:marble_bricks",
+    "mirabilia:inkstone",
+    "mirabilia:glyphstone",
+    "mirabilia:marble_pebbles",
+    "mirabilia:media_discharger",
+    "mirabilia:ambient_collector",
+    "mirabilia:solar_collector",
+    "mirabilia:crystallizer",
+    "mirabilia:lost_dreamer_spawn_egg",
+    "mirabilia:glass_man_spawn_egg"
+  ]
+}

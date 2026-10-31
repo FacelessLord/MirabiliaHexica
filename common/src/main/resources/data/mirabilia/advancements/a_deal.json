@@ -1,0 +1,40 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mirabilia:feature",
+      "feature": "glass_man"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "mirabilia:feature",
+      "feature": "glass_man"
+    }
+  ],
+  "parent": "mirabilia:new_shell",
+  "display": {
+    "icon": {
+      "item": "hexcasting:focus"
+    },
+    "title": {
+      "translate": "advancements.mirabilia.a_deal.title"
+    },
+    "description": {
+      "translate": "advancements.mirabilia.a_deal.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

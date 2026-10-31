@@ -1,0 +1,32 @@
+{
+  "name": "mirabilia.entry.ambient_media",
+  "category": "hexcasting:patterns",
+  "icon": "minecraft:amethyst_cluster",
+  "sortnum": 10,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.ambient_media.1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.ambient_media.2"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.ambient_media.3",
+      "flag": "mirabilia:dream_pull"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:ambient_media",
+      "anchor": "mirabilia:ambient_media",
+      "input": "",
+      "output": "number",
+      "text": "mirabilia.page.ambient_media.reflection"
+    }
+  ],
+  "flag": "mirabilia:ambient_media"
+}

@@ -1,0 +1,40 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mirabilia:feature",
+      "feature": "wellsprings"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "mirabilia:feature",
+      "feature": "wellsprings"
+    }
+  ],
+  "parent": "mirabilia:supply_chain",
+  "display": {
+    "icon": {
+      "item": "hexcasting:battery"
+    },
+    "title": {
+      "translate": "advancements.mirabilia.fully_provided.title"
+    },
+    "description": {
+      "translate": "advancements.mirabilia.fully_provided.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

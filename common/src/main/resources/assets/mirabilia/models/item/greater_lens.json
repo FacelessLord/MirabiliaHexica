@@ -1,0 +1,13 @@
+{
+  "parent": "minecraft:item/generated",
+  "display": {
+    "head": {
+      "rotation": [0, 180, 0],
+      "scale": [0.4, 0.4, 0.4],
+      "translation": [-2.5, 0, -8]
+    }
+  },
+  "textures": {
+    "layer0": "mirabilia:item/greater_lens"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "parent": "mirabilia:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:snow_block"
+    },
+    "title": {
+      "translate": "advancements.mirabilia.hoarfrost.title"
+    },
+    "description": {
+      "translate": "advancements.mirabilia.hoarfrost.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

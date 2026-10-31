@@ -1,0 +1,34 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "mirabilia:feature",
+      "feature": "tanakos_world"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "mirabilia:feature",
+      "feature": "tanakos_world"
+    }
+  ],
+  "criteria": {
+    "read": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hexcasting:scroll"
+            ],
+            "nbt": "{op_id:\"mirabilia:dream_gaze\"}"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "read"
+    ]
+  ]
+}

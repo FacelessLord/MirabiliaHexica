@@ -1,0 +1,54 @@
+{
+  "name": "mirabilia.entry.machines",
+  "category": "hexcasting:items",
+  "icon": "mirabilia:crystallizer",
+  "sortnum": 20,
+  "advancement": "mirabilia:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.machines.1"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "mirabilia:media_discharger",
+      "text": "mirabilia.page.machines.discharger",
+      "flag": "mirabilia:media_discharger"
+    },
+    {
+      "type": "hexcasting:brainsweep",
+      "recipe": "mirabilia:brainsweep/ambient_collector",
+      "text": "mirabilia.page.machines.ambient",
+      "flag": "mirabilia:ambient_collector"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "mirabilia:solar_collector",
+      "text": "mirabilia.page.machines.solar",
+      "advancement": "mirabilia:listening_post",
+      "flag": "mirabilia:solar_collector_dream"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "mirabilia:solar_collector_obsidian",
+      "text": "mirabilia.page.machines.solar_plain",
+      "flag": "mirabilia:solar_collector_plain"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "mirabilia:crystallizer",
+      "text": "mirabilia.page.machines.crystallizer",
+      "flag": "mirabilia:crystallizer"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:read_the_sun",
+      "anchor": "mirabilia:read_the_sun",
+      "input": "",
+      "output": "number",
+      "text": "mirabilia.page.machines.read_the_sun"
+    }
+  ],
+  "flag": "mirabilia:machines"
+}

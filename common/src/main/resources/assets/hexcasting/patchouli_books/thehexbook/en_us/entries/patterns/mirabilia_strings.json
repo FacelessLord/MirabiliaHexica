@@ -1,0 +1,92 @@
+{
+  "name": "mirabilia.entry.strings",
+  "category": "hexcasting:patterns",
+  "icon": "minecraft:writable_book",
+  "sortnum": 8,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "flag": "mirabilia:string_patterns",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.strings.intro"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.strings.arithmetic"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:string/from",
+      "anchor": "mirabilia:string/from",
+      "input": "any",
+      "output": "string",
+      "text": "mirabilia.page.strings.from"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:string/split",
+      "anchor": "mirabilia:string/split",
+      "input": "string, string",
+      "output": "list",
+      "text": "mirabilia.page.strings.split"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:string/parse",
+      "anchor": "mirabilia:string/parse",
+      "input": "string",
+      "output": "number | null",
+      "text": "mirabilia.page.strings.parse"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:string/sign",
+      "anchor": "mirabilia:string/sign",
+      "input": "vector",
+      "output": "string | null",
+      "text": "mirabilia.page.strings.sign"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:string/chat",
+      "anchor": "mirabilia:string/chat",
+      "input": "number",
+      "output": "string",
+      "text": "mirabilia.page.strings.chat",
+      "flag": "mirabilia:chat_reading"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "mirabilia.page.strings.palace",
+      "flag": "mirabilia:mind_palace"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:string/memory_write",
+      "anchor": "mirabilia:string/memory_write",
+      "input": "string | null, number",
+      "output": "",
+      "text": "mirabilia.page.strings.memory_write",
+      "flag": "mirabilia:mind_palace"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:string/memory_read",
+      "anchor": "mirabilia:string/memory_read",
+      "input": "number",
+      "output": "string",
+      "text": "mirabilia.page.strings.memory_read",
+      "flag": "mirabilia:mind_palace"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "mirabilia:string/palace_size",
+      "anchor": "mirabilia:string/palace_size",
+      "input": "",
+      "output": "number",
+      "text": "mirabilia.page.strings.palace_size",
+      "flag": "mirabilia:mind_palace"
+    }
+  ]
+}

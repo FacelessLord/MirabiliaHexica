@@ -5,7 +5,8 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "MixinCastingEnvironment",
-    "MixinBuddingAmethystBlock"
+    "MixinBuddingAmethystBlock",
+    "MixinVillager"
   ],
   "injectors": {
     "defaultRequire": 1

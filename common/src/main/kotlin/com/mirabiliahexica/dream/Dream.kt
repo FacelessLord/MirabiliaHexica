@@ -107,12 +107,7 @@ object Dream {
         // And in chat, which stays, saying plainly why
         val why = if (touched) "cold_glass" else how.name.lowercase()
         player.sendSystemMessage(Component.translatable("mirabilia.dream.why.$why").withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC))
-        if (followed && Features.isOn("glass_man") && Possession.possessNear(player) == null) {
-            // It came, but had nowhere to go: say so, or it looks as if nothing happened
-            player.sendSystemMessage(Component.translatable("mirabilia.glass_man.no_shell", GlassManSpawner.FOLLOW_RANGE.toInt())
-                .withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC))
-            Mirabilia.LOGGER.info("The Glass Man followed {} out, but found no empty villager within {} blocks", player.gameProfile.name, GlassManSpawner.FOLLOW_RANGE)
-        }
+        if (followed && Features.isOn("glass_man")) Possession.follow(player)
     }
 
     /** Waking with the Glass Man this close is cutting it fine. */

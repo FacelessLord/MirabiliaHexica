@@ -10,6 +10,7 @@ import com.mirabiliahexica.worldgen.DreamLibrary
 import dev.architectury.event.EventResult
 import dev.architectury.event.events.common.InteractionEvent
 import dev.architectury.event.events.common.TickEvent
+import net.minecraft.ChatFormatting
 import net.minecraft.nbt.CompoundTag
 import net.minecraft.nbt.ListTag
 import net.minecraft.nbt.NbtUtils
@@ -20,12 +21,14 @@ import net.minecraft.server.level.ServerLevel
 import net.minecraft.server.level.ServerPlayer
 import net.minecraft.sounds.SoundEvent
 import net.minecraft.sounds.SoundEvents
+import net.minecraft.util.Mth
 import net.minecraft.world.entity.npc.Villager
 import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.trading.Merchant
 import net.minecraft.world.item.trading.MerchantOffer
 import net.minecraft.world.item.trading.MerchantOffers
+import net.minecraft.world.level.ChunkPos
 import net.minecraft.world.level.saveddata.SavedData
 import java.util.UUID
 import kotlin.random.Random
@@ -56,6 +59,54 @@ object Possession {
             }
         }
         TickEvent.SERVER_POST.register(::shimmer)
+        TickEvent.SERVER_POST.register(::settle)
+    }
+
+    /** Dreamers the Glass Man followed out, waiting for the creatures around them to load: until which tick. */
+    private val following = HashMap<UUID, Int>()
+
+    /** How long the Glass Man waits for the place [player] woke in to fill with its creatures, in ticks. */
+    private const val FOLLOW_WAIT = 200
+
+    /**
+     * The Glass Man followed [player] out of the dream. A place nobody was near has its blocks back at once but its
+     * creatures only a little later, so it looks for a villager once they're all there (at once if they already are).
+     */
+    fun follow(player: ServerPlayer) {
+        following[player.uuid] = player.server.tickCount + FOLLOW_WAIT
+        settle(player.server)
+    }
+
+    /** Whether the Glass Man is still waiting to look for a villager near [player]. */
+    fun waiting(player: ServerPlayer) = player.uuid in following
+
+    private fun settle(server: MinecraftServer) {
+        if (following.isEmpty()) return
+        following.entries.removeIf { (uuid, until) ->
+            val player = server.playerList.getPlayer(uuid) ?: return@removeIf true
+            val loaded = loadedAround(player)
+            if (!loaded && server.tickCount < until) return@removeIf false
+            if (possessNear(player) == null) {
+                // It came, but had nowhere to go: say so, or it looks as if nothing happened
+                player.sendSystemMessage(Component.translatable("mirabilia.glass_man.no_shell", GlassManSpawner.FOLLOW_RANGE.toInt())
+                    .withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC))
+                Mirabilia.LOGGER.info("The Glass Man followed {} out, but found no empty villager within {} blocks{}", player.gameProfile.name,
+                    GlassManSpawner.FOLLOW_RANGE, if (loaded) "" else " (the creatures there hadn't loaded yet)")
+            }
+            true
+        }
+    }
+
+    /** Whether the creatures of every chunk within [GlassManSpawner.FOLLOW_RANGE] of [player] are loaded. */
+    private fun loadedAround(player: ServerPlayer): Boolean {
+        val box = player.boundingBox.inflate(GlassManSpawner.FOLLOW_RANGE)
+        val level = player.serverLevel()
+        for (cx in (Mth.floor(box.minX) shr 4)..(Mth.floor(box.maxX) shr 4)) {
+            for (cz in (Mth.floor(box.minZ) shr 4)..(Mth.floor(box.maxZ) shr 4)) {
+                if (!level.areEntitiesLoaded(ChunkPos.asLong(cx, cz))) return false
+            }
+        }
+        return true
     }
 
     /**
@@ -71,6 +122,25 @@ object Possession {
         if (listed) villager.addTag(TAG)
         return listed
     }
+
+    /**
+     * Some carrying mods (Easy Villagers) keep only a villager's own save data when they pick it up, not its tags or
+     * the loader's data where Hex Casting keeps its flayed mark: so both marks are written there too, and read back.
+     */
+    fun saveMarks(villager: Villager, tag: CompoundTag) {
+        if (villager.level().isClientSide) return
+        if (isPossessed(villager)) tag.putBoolean(SAVED_POSSESSED, true)
+        if (IXplatAbstractions.INSTANCE.isBrainswept(villager)) tag.putBoolean(SAVED_FLAYED, true)
+    }
+
+    fun restoreMarks(villager: Villager, tag: CompoundTag) {
+        if (villager.level().isClientSide) return
+        if (tag.getBoolean(SAVED_POSSESSED)) villager.addTag(TAG)
+        if (tag.getBoolean(SAVED_FLAYED) && !IXplatAbstractions.INSTANCE.isBrainswept(villager)) IXplatAbstractions.INSTANCE.setBrainsweepAddlData(villager)
+    }
+
+    private const val SAVED_POSSESSED = "mirabilia:possessed"
+    private const val SAVED_FLAYED = "mirabilia:flayed"
 
     /** Moves the Glass Man into the nearest empty villager near [player]. Returns it, or null if there was none. */
     fun possessNear(player: ServerPlayer): Villager? {

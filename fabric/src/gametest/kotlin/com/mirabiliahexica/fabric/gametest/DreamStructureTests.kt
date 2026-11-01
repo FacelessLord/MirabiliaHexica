@@ -138,6 +138,8 @@ class DreamStructureTests {
                 structure.value().findValidGenerationPoint(context).isPresent
             }
             check(valid > 0) { "$structureId wouldn't start in any of 8 candidate spots" }
+            // Listening posts are rare: one in a region about 3000 blocks across
+            if (structureId == "listening_post") check(placement.spacing() * 16 >= 3000) { "listening posts are only ${placement.spacing() * 16} blocks apart" }
         }
         helper.succeed()
     }

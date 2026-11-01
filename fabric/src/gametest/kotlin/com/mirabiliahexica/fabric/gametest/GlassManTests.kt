@@ -91,6 +91,25 @@ class GlassManTests {
         }
     }
 
+    @GameTest(template = FabricGameTest.EMPTY_STRUCTURE, batch = BATCH, timeoutTicks = 400)
+    fun itWaitsForTheCreaturesOfAnUnloadedPlaceToLoad(helper: GameTestHelper) {
+        // Waking somewhere nobody has been: the blocks come back at once, the creatures a little later
+        val player = helper.makeMockServerPlayerInLevel()
+        player.moveTo(30_000.5, 100.0, 30_000.5)
+        check(!helper.level.areEntitiesLoaded(net.minecraft.world.level.ChunkPos.asLong(30_000 shr 4, 30_000 shr 4))) { "the far place was already loaded" }
+        Possession.follow(player)
+        check(Possession.waiting(player)) { "the Glass Man looked before the creatures there loaded" }
+        // (a test player's moves don't load chunks, so load the place as a real arrival would)
+        val span = ((30_000 - 8) shr 4)..((30_000 + 8) shr 4)
+        val chunks = span.flatMap { x -> span.map { z -> x to z } }
+        chunks.forEach { (x, z) -> helper.level.setChunkForced(x, z, true) }
+        helper.succeedWhen {
+            check(!Possession.waiting(player)) { "still waiting" }
+            check(helper.level.areEntitiesLoaded(net.minecraft.world.level.ChunkPos.asLong(30_000 shr 4, 30_000 shr 4))) { "gave up before they loaded" }
+            chunks.forEach { (x, z) -> helper.level.setChunkForced(x, z, false) }
+        }
+    }
+
     @GameTest(template = FabricGameTest.EMPTY_STRUCTURE, batch = BATCH)
     fun itFollowsTheWakerIntoAnEmptyVillager(helper: GameTestHelper) {
         // An empty villager (mind taken with Flay Mind) and an ordinary one, both by the bed
@@ -109,6 +128,12 @@ class GlassManTests {
         val copy = EntityType.VILLAGER.create(helper.level)!!
         copy.load(saved)
         check(copy.uuid != empty.uuid && Possession.isPossessed(copy)) { "a re-created possessed villager lost its possession" }
+        // Easy Villagers keeps only the villager's own data (no tags, no loader data): it stays possessed, and flayed
+        val own = net.minecraft.nbt.CompoundTag().also { empty.addAdditionalSaveData(it) }
+        val carried = EntityType.VILLAGER.create(helper.level)!!
+        carried.readAdditionalSaveData(own)
+        check(Possession.isPossessed(carried)) { "a villager carried by Easy Villagers lost its possession" }
+        check(IXplatAbstractions.INSTANCE.isBrainswept(carried)) { "a villager carried by Easy Villagers got its mind back" }
         for (name in listOf("glass_dream", "someone_watching", "just_in_time", "act_of_will", "new_shell")) {
             check(MirabiliaAdvancements.has(player, name)) { "no $name advancement" }
         }

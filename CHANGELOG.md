@@ -1,4 +1,2 @@
-- Possessed villagers stay possessed when picked up and put back by a carrying mod, or otherwise saved and re-created.
-- When the Glass Man follows you out but finds no empty (Flay-Minded) villager within 8 blocks of where you wake, a chat line says so, instead of nothing happening. Both outcomes go into the game log.
-- In creative mode, the dream's spells work without finding their scrolls.
-- Fixed: a possessed villager's trading screen closed as soon as it opened.
+- Listening posts are four times rarer: one in a region about 3000 blocks across, instead of 1500. Existing posts stay; only newly explored parts of the dream use the new spacing.
+- Fixed: the Glass Man often found no empty villager after following you out, because it looked before the villagers around your bed had loaded back in. It now waits for them (up to 10 seconds).

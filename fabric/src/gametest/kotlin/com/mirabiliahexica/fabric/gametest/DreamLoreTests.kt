@@ -26,10 +26,16 @@ class DreamLoreTests {
     @GameTest(template = FabricGameTest.EMPTY_STRUCTURE, batch = "mirabilia_dream")
     fun aDreamSpellWorksOnlyOnceItsScrollIsRead(helper: GameTestHelper) {
         val player = helper.makeMockServerPlayerInLevel()
+        player.setGameMode(net.minecraft.world.level.GameType.SURVIVAL)
         helper.absoluteVec(Vec3(1.5, 2.0, 1.5)).let { player.moveTo(it.x, it.y, it.z) }
         Dream.enter(player, null)
         check(castWake(player) == ResolvedPatternType.INVALID) { "Wake worked before its scroll was read" }
         check(Dream.isDreaming(player)) { "woke without knowing Wake" }
+        // ...unless in creative mode, where every dream spell works
+        player.setGameMode(net.minecraft.world.level.GameType.CREATIVE)
+        check(castWake(player) == ResolvedPatternType.EVALUATED && !Dream.isDreaming(player)) { "Wake didn't work in creative" }
+        player.setGameMode(net.minecraft.world.level.GameType.SURVIVAL)
+        Dream.enter(player, null)
 
         // A Wake scroll, as the dream's loot gives them
         val scroll = listeningPostLoot(helper).firstOrNull { it.tag?.getString(ItemScroll.TAG_OP_ID) == "mirabilia:wake" }

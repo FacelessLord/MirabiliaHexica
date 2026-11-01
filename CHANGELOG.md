@@ -1,3 +1,4 @@
-First public beta.
-
-Everything is new: Tanako's World, ambient media and its machines, imbued lenses, armor and tools, wellsprings and tethers, macros, string patterns with chat reading and the mind palace, and a config file that can switch off or retune all of it. Standing spells are in but off by default.
+- Possessed villagers stay possessed when picked up and put back by a carrying mod, or otherwise saved and re-created.
+- When the Glass Man follows you out but finds no empty (Flay-Minded) villager within 8 blocks of where you wake, a chat line says so, instead of nothing happening. Both outcomes go into the game log.
+- In creative mode, the dream's spells work without finding their scrolls.
+- Fixed: a possessed villager's trading screen closed as soon as it opened.

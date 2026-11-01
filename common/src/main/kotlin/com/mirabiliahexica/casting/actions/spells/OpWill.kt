@@ -1,5 +1,6 @@
 package com.mirabiliahexica.casting.actions.spells
 
+import com.mirabiliahexica.dream.DreamTicker
 import at.petrak.hexcasting.api.casting.ParticleSpray
 import at.petrak.hexcasting.api.casting.RenderedSpell
 import at.petrak.hexcasting.api.casting.castables.SpellAction
@@ -55,7 +56,8 @@ abstract class OpWill : SpellAction {
     companion object {
         val REACH get() = Tuning.Dream.willReach
         /** Five seconds' worth of unprotected cold. */
-        val COLD get() = Tuning.Dream.willCold
+        /** The willing's ticks of cold, in the dream's quarter-tick units. */
+        val COLD get() = Tuning.Dream.willCold * DreamTicker.COLD_PER_TICK
 
         fun shapeable(level: ServerLevel, pos: BlockPos) = level.getBlockState(pos).`is`(MirabiliaTags.DREAM_SHAPEABLE)
     }

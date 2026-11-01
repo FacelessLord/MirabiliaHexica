@@ -19,15 +19,20 @@ import com.mirabiliahexica.config.Tuning
  *   world tick would end the night and wake them.)
  * * Dreamers who crouch without moving for [STILL_TICKS] wake.
  * * Lost Dreamers appear around dreamers, more as time goes on ([DreamSpawner]).
- * * The dream is cold: it builds up over [MAX_COLD] ticks, shown as freezing, and a fully frozen dreamer is
- *   thrown out with damage. Each piece of leather (or other freeze-proof) armor slows it by a quarter; standing
- *   near a fire, lit campfire or lava warms them back up.
+ * * The dream is cold: unprotected it builds up over `dream.maxColdTicks` (5 minutes), shown as freezing, and a
+ *   fully frozen dreamer is thrown out with damage. Each piece of leather (or other freeze-proof) armor slows it
+ *   by a quarter; standing near a fire, lit campfire or lava warms them back up. Cold is counted in quarters of a
+ *   tick ([COLD_PER_TICK] a tick unprotected), so the armor's quarters come out exact.
  */
 object DreamTicker {
     val STILL_TICKS get() = Tuning.Dream.stillTicks
-    val MAX_COLD get() = Tuning.Dream.maxCold
+    /** Cold an unprotected dreamer gains each tick; each freeze-proof armor piece takes one off. */
+    const val COLD_PER_TICK = 4
+
+    /** Cold at which a dreamer is thrown out: the configured ticks, at the unprotected rate. */
+    val MAX_COLD get() = Tuning.Dream.maxCold * COLD_PER_TICK
     private val WARMTH_RADIUS get() = Tuning.Dream.warmthRadius
-    private val WARMING_PER_SECOND get() = Tuning.Dream.warmingPerSecond
+    private val WARMING_PER_SECOND get() = Tuning.Dream.warmingPerSecond * COLD_PER_TICK
     private const val SNOW_RADIUS = 64
     private const val SNOW_CHECKS_PER_TICK = 32
 
@@ -37,6 +42,7 @@ object DreamTicker {
 
     fun forget(player: ServerPlayer) {
         still.remove(player.uuid)
+        coldWarned.remove(player.uuid)
         DreamDanger.forget(player)
     }
 
@@ -72,6 +78,7 @@ object DreamTicker {
             Dream.wake(player, Dream.Waking.COLD)
             return
         }
+        warnOfCold(player, visit)
         // Vanilla's frost overlay and slowdown, kept just short of the point where vanilla starts hurting
         player.ticksFrozen = visit.cold * (player.ticksRequiredToFreeze - 1) / MAX_COLD
     }
@@ -93,6 +100,18 @@ object DreamTicker {
     }
 
     /** True once the player has crouched in place long enough. */
+    /** Dreamers already warned of the cold; warned again only once it has eased off and come back. */
+    private val coldWarned = HashSet<UUID>()
+
+    private fun warnOfCold(player: ServerPlayer, visit: DreamVisit) {
+        val share = visit.cold.toDouble() / MAX_COLD
+        if (share >= Tuning.Dream.coldWarning) {
+            if (coldWarned.add(player.uuid)) player.displayClientMessage(Component.translatable("mirabilia.dream.cold_warning"), true)
+        } else if (share < Tuning.Dream.coldWarning - 0.15) {
+            coldWarned.remove(player.uuid)
+        }
+    }
+
     private fun tickStillness(player: ServerPlayer): Boolean {
         val s = still.getOrPut(player.uuid) { Stillness(player.x, player.y, player.z) }
         val moved = player.distanceToSqr(s.x, s.y, s.z) > 0.01
@@ -115,9 +134,9 @@ object DreamTicker {
         return s.ticks >= STILL_TICKS
     }
 
-    /** Cold gained this tick: 4 per tick unprotected, one less per freeze-proof armor piece. */
+    /** Cold gained this tick: [COLD_PER_TICK] unprotected, one less per freeze-proof armor piece. */
     private fun coldGain(player: ServerPlayer): Int =
-        4 - player.armorSlots.count { it.`is`(ItemTags.FREEZE_IMMUNE_WEARABLES) }
+        COLD_PER_TICK - player.armorSlots.count { it.`is`(ItemTags.FREEZE_IMMUNE_WEARABLES) }
 
     private fun isWarm(player: ServerPlayer): Boolean {
         val level = player.level()

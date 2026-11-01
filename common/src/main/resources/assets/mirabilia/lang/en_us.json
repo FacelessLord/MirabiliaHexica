@@ -334,5 +334,16 @@
   "mirabilia.page.strings.palace": "The old orators kept their speeches in imagined buildings, a thought in every room. I can do as much: my $(thing)mind palace/$ has #{palace.rooms|room|rooms}, numbered from 0 to #{palace.lastRoom}, each able to hold a string. What I put there stays, through sleep, death and dreams, and is mine alone.",
   "mirabilia.page.strings.memory_write": "Puts the string into the given room of my mind palace, replacing whatever was there; $(l:casting/influences)$(thing)Null/$ empties the room. Costs #{palace.writeCost} $(item)Amethyst Dust/$.",
   "mirabilia.page.strings.memory_read": "What is kept in the given room of my mind palace, or $(l:casting/influences)$(thing)Null/$ if it stands empty.",
-  "mirabilia.page.strings.palace_size": "How many rooms of my mind palace hold something."
+  "mirabilia.page.strings.palace_size": "How many rooms of my mind palace hold something.",
+  "commands.mirabilia.wake.none": "Nobody there is dreaming",
+  "commands.mirabilia.wake.one": "Woke %s",
+  "commands.mirabilia.wake.many": "Woke %s dreamers",
+  "mirabilia.dream.cold_warning": "The cold is in your bones. Get warm, or you'll be thrown out",
+  "mirabilia.dream.why.stillness": "You kept still long enough to wake from the dream.",
+  "mirabilia.dream.why.pattern": "Wake pulled you out of the dream.",
+  "mirabilia.dream.why.cold": "The dream's cold grew too much and threw you out.",
+  "mirabilia.dream.why.cold_glass": "The Glass Man's touch finished off the dream's cold and threw you out.",
+  "mirabilia.dream.why.mask": "The Glass Man wore you like a mask and threw you out of the dream.",
+  "mirabilia.dream.why.other": "You were woken from the dream.",
+  "mirabilia.glass_man.no_shell": "Something followed you out of the dream, but found no empty villager within %s blocks to take, and faded."
 }

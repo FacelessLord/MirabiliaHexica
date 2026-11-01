@@ -13,7 +13,7 @@ import com.mirabiliahexica.config.FeatureGated
  * The dream's own spells must be found before they work: each is taught by an Ancient Scroll carrying it, found
  * on Lost Dreamers and in the dream's chests. Picking one up earns an invisible advancement
  * (`mirabilia:dream_lore/<spell>`, criterion [CRITERION]), which also reveals that spell's page in the book.
- * Until then, drawing the spell is like drawing a pattern that means nothing.
+ * Until then, drawing the spell is like drawing a pattern that means nothing. In creative mode they all work.
  */
 object DreamLore {
     const val CRITERION = "read"
@@ -30,6 +30,8 @@ object DreamLore {
         if (!Features.dreamSpellsNeedScrolls) return
         val entry = MirabiliaActions.entries.first { (it.value.action as? FeatureGated)?.action ?: it.value.action === action }
         val caster = env.castingEntity as? ServerPlayer
+        // Creative players know them all (the game mode itself: GameTest mock players always claim isCreative)
+        if (caster != null && caster.gameMode.isCreative) return
         if (caster == null || !knows(caster, entry.id.path)) throw MishapInvalidPattern(entry.value.prototype)
     }
 }

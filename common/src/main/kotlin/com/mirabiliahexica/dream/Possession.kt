@@ -58,17 +58,31 @@ object Possession {
         TickEvent.SERVER_POST.register(::shimmer)
     }
 
-    fun isPossessed(villager: Villager) = villager.level().server?.let { Data.get(it).possessed.contains(villager.uuid) } == true
+    /**
+     * The mark a possessed villager carries in its own saved data, so it stays possessed through anything that
+     * saves and re-creates it (being carried by a pickup mod, moved between worlds), whatever its new UUID.
+     */
+    const val TAG = "mirabilia.possessed"
+
+    fun isPossessed(villager: Villager): Boolean {
+        if (TAG in villager.tags) return true
+        // Possessed before the mark existed: listed by UUID in the world's data; marked now
+        val listed = villager.level().server?.let { Data.get(it).possessed.contains(villager.uuid) } == true
+        if (listed) villager.addTag(TAG)
+        return listed
+    }
 
     /** Moves the Glass Man into the nearest empty villager near [player]. Returns it, or null if there was none. */
     fun possessNear(player: ServerPlayer): Villager? {
         val level = player.serverLevel()
         val data = Data.get(player.server)
         val villager = level.getEntitiesOfClass(Villager::class.java, player.boundingBox.inflate(GlassManSpawner.FOLLOW_RANGE)) {
-            IXplatAbstractions.INSTANCE.isBrainswept(it) && it.uuid !in data.possessed
+            IXplatAbstractions.INSTANCE.isBrainswept(it) && !isPossessed(it)
         }.minByOrNull { it.distanceToSqr(player) } ?: return null
+        villager.addTag(TAG)
         data.possessed += villager.uuid
         data.setDirty()
+        Mirabilia.LOGGER.info("The Glass Man followed {} out into the villager at {}", player.gameProfile.name, villager.blockPosition().toShortString())
         GlassMan.shimmer(level, villager.x, villager.y, villager.z)
         player.displayClientMessage(Component.translatable("mirabilia.glass_man.possessed"), true)
         MirabiliaAdvancements.possessed(player)
@@ -96,21 +110,23 @@ object Possession {
 
     private class Ware(val name: Component, val price: Int, val hex: () -> CompoundTag)
 
-    private fun openTrades(player: ServerPlayer, villager: Villager) {
+    /** Opens the possessed [villager]'s wares to [player]. */
+    fun openTrades(player: ServerPlayer, villager: Villager) {
         val level = villager.level() as ServerLevel
         val day = Math.floorDiv(level.dayTime, 24000L)
         val offers = offers(villager)
-        GlassMerchant(offers) { index -> Data.get(level.server).markSold(villager.uuid, day, index) }
-            .openTradingScreen(player, villager.displayName, 0)
+        val merchant = GlassMerchant(offers) { index -> Data.get(level.server).markSold(villager.uuid, day, index) }
+        // The trading screen stays open only while its merchant says this player is trading, as a villager does
+        merchant.setTradingPlayer(player)
+        merchant.openTradingScreen(player, villager.displayName, 0)
     }
 
     /** A faint glint over possessed villagers near players. */
     private fun shimmer(server: MinecraftServer) {
         if (server.tickCount % 40 != 0 || !Features.isOn("glass_man")) return
         val data = Data.get(server)
-        if (data.possessed.isEmpty()) return
         for (player in server.playerList.players) {
-            for (villager in player.serverLevel().getEntitiesOfClass(Villager::class.java, player.boundingBox.inflate(32.0)) { it.uuid in data.possessed }) {
+            for (villager in player.serverLevel().getEntitiesOfClass(Villager::class.java, player.boundingBox.inflate(32.0)) { isPossessed(it) }) {
                 player.serverLevel().sendParticles(net.minecraft.core.particles.ParticleTypes.END_ROD, villager.x, villager.y + 1.2, villager.z, 2, 0.3, 0.5, 0.3, 0.01)
             }
         }

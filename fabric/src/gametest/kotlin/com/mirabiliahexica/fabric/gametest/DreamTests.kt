@@ -92,6 +92,28 @@ class DreamTests {
     }
 
     @GameTest(template = FabricGameTest.EMPTY_STRUCTURE, batch = BATCH)
+    fun theWakeCommandWakesDreamers(helper: GameTestHelper) {
+        val player = player(helper)
+        val home = player.position()
+        Dream.enter(player, null)
+        val server = player.server
+        // As the player, with operator rights (mock players all share a name, so no names here)
+        val source = player.createCommandSourceStack().withPermission(2).withSuppressedOutput()
+        fun run(command: String) = try {
+            server.commands.dispatcher.execute(command, source)
+        } catch (e: Exception) {
+            throw GameTestAssertException("/$command failed: ${e.message}")
+        }
+        check(run("mirabilia wake") == 1) { "/mirabilia wake didn't count one dreamer" }
+        check(!Dream.isDreaming(player) && player.position().distanceTo(home) < 0.01) { "the command didn't wake the dreamer home" }
+        // A named target works too; an awake one is simply not woken
+        Dream.enter(player, null)
+        check(run("mirabilia wake @s") == 1 && !Dream.isDreaming(player)) { "/mirabilia wake @s didn't wake them" }
+        check(run("mirabilia wake @s") == 0) { "woke someone already awake" }
+        helper.succeed()
+    }
+
+    @GameTest(template = FabricGameTest.EMPTY_STRUCTURE, batch = BATCH)
     fun willingPatternsShapeTheDream(helper: GameTestHelper) {
         val player = player(helper)
         player.setGameMode(GameType.SURVIVAL)
@@ -248,6 +270,13 @@ class DreamTests {
         // A real client confirms the dimension change; until then players can't be hurt
         player.hasChangedDimension()
         val visit = DreamVisits.get(player.server)[player.uuid]!!
+        // Unprotected, the cold takes the configured time to fill (5 minutes), not a quarter of it
+        visit.cold = 0
+        repeat(100) { DreamTicker.tick(player.server) }
+        val perTick = visit.cold / 100.0
+        check(DreamTicker.MAX_COLD / perTick == com.mirabiliahexica.config.Tuning.Dream.maxCold.toDouble()) {
+            "an unprotected dreamer freezes in ${DreamTicker.MAX_COLD / perTick} ticks, not ${com.mirabiliahexica.config.Tuning.Dream.maxCold}"
+        }
         visit.cold = DreamTicker.MAX_COLD / 2
         DreamTicker.tick(player.server)
         check(player.ticksFrozen in 60..70) { "half-frozen should show about half frost, got ${player.ticksFrozen}" }

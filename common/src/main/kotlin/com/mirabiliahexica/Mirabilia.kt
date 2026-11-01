@@ -81,6 +81,7 @@ object Mirabilia {
         DreamPull.init()
         SunSighting.init()
         ChatMemory.init()
+        MirabiliaCommands.init()
         MediaSources.init()
         ArmorImbuement.init()
         Possession.init()

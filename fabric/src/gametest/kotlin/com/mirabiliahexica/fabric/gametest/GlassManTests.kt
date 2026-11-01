@@ -103,6 +103,12 @@ class GlassManTests {
         Dream.wake(player, Dream.Waking.PATTERN)
         check(Possession.isPossessed(empty)) { "the Glass Man didn't move into the empty villager" }
         check(!Possession.isPossessed(ordinary)) { "it took a villager with a mind of its own" }
+        // Saved and re-created (as a pickup mod does), with a new UUID and without Hex's brainswept mark, it stays possessed
+        val saved = net.minecraft.nbt.CompoundTag().also { empty.saveWithoutId(it) }
+        saved.remove("UUID")
+        val copy = EntityType.VILLAGER.create(helper.level)!!
+        copy.load(saved)
+        check(copy.uuid != empty.uuid && Possession.isPossessed(copy)) { "a re-created possessed villager lost its possession" }
         for (name in listOf("glass_dream", "someone_watching", "just_in_time", "act_of_will", "new_shell")) {
             check(MirabiliaAdvancements.has(player, name)) { "no $name advancement" }
         }
@@ -119,6 +125,11 @@ class GlassManTests {
         check(Possession.offers(empty).map { it.result.hoverName.string } == offers.map { it.result.hoverName.string }) {
             "the wares changed within the day"
         }
+        // Its trading screen opens and stays open (it closes itself unless the merchant knows who's trading)
+        Possession.openTrades(player, empty)
+        check(player.containerMenu is net.minecraft.world.inventory.MerchantMenu) { "no trading screen opened: ${player.containerMenu}" }
+        check(player.containerMenu.stillValid(player)) { "the trading screen would close at once" }
+        player.closeContainer()
         helper.succeed()
     }
 

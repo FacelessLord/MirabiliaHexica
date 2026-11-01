@@ -5,6 +5,7 @@ import com.mirabiliahexica.Mirabilia
 import com.mirabiliahexica.registry.MirabiliaBlocks
 import com.mirabiliahexica.registry.MirabiliaEffects
 import com.mirabiliahexica.registry.MirabiliaTags
+import net.minecraft.ChatFormatting
 import net.minecraft.core.BlockPos
 import net.minecraft.core.registries.Registries
 import net.minecraft.network.chat.Component
@@ -27,6 +28,7 @@ import net.minecraft.world.phys.Vec3
 import com.mirabiliahexica.advancement.MirabiliaAdvancements
 import com.mirabiliahexica.config.Features
 import com.mirabiliahexica.config.Tuning
+import java.util.Locale
 
 /**
  * Tanako's World, the dream. Sleeping in a bed near an Akashic Record carries a player there, to a different
@@ -78,9 +80,12 @@ object Dream {
     /** Brings [player] back from the dream, to their bed if it still stands. */
     fun wake(player: ServerPlayer, how: Waking) {
         val visit = DreamVisits.get(player.server).end(player.uuid)
+        log(player, "woke (${how.name.lowercase()})", visit)
         DreamTicker.forget(player)
         // The Glass Man stays behind, unless it was close enough to follow them out
         val followed = GlassManSpawner.near(player, GlassManSpawner.FOLLOW_RANGE)
+        // Was he close enough that his touch, not the dream alone, is what finished the cold?
+        val touched = how == Waking.COLD && GlassManSpawner.near(player, 4.0)
         if (GlassManSpawner.near(player, JUST_IN_TIME)) MirabiliaAdvancements.award(player, "just_in_time")
         when (how) {
             Waking.COLD -> MirabiliaAdvancements.award(player, "cold_welcome")
@@ -99,7 +104,15 @@ object Dream {
         player.teleportTo(level, pos.x, pos.y, pos.z, player.yRot, player.xRot)
         carry(company, level, pos)
         player.displayClientMessage(Component.translatable("mirabilia.dream.wake.${how.name.lowercase()}"), true)
-        if (followed && Features.isOn("glass_man")) Possession.possessNear(player)
+        // And in chat, which stays, saying plainly why
+        val why = if (touched) "cold_glass" else how.name.lowercase()
+        player.sendSystemMessage(Component.translatable("mirabilia.dream.why.$why").withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC))
+        if (followed && Features.isOn("glass_man") && Possession.possessNear(player) == null) {
+            // It came, but had nowhere to go: say so, or it looks as if nothing happened
+            player.sendSystemMessage(Component.translatable("mirabilia.glass_man.no_shell", GlassManSpawner.FOLLOW_RANGE.toInt())
+                .withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC))
+            Mirabilia.LOGGER.info("The Glass Man followed {} out, but found no empty villager within {} blocks", player.gameProfile.name, GlassManSpawner.FOLLOW_RANGE)
+        }
     }
 
     /** Waking with the Glass Man this close is cutting it fine. */
@@ -123,6 +136,18 @@ object Dream {
             val z = at.z + entity.random.nextDouble() * 2 - 1
             entity.teleportTo(level, x, at.y, z, EnumSet.noneOf(RelativeMovement::class.java), entity.yRot, entity.xRot)
         }
+    }
+
+    /**
+     * A line in the server log whenever a dreamer leaves the dream, saying why and in what state, since the
+     * message they see on screen isn't logged.
+     */
+    fun log(player: ServerPlayer, what: String, visit: DreamVisit?) {
+        val glass = GlassManSpawner.find(player)?.let { String.format(Locale.ROOT, "%.1f blocks away", it.distanceTo(player)) } ?: "none"
+        val cold = visit?.let { "${it.cold}/${DreamTicker.MAX_COLD}" } ?: "?"
+        val minutes = visit?.let { String.format(Locale.ROOT, "%.1f", it.ticks / 1200.0) } ?: "?"
+        Mirabilia.LOGGER.info("{} {} from Tanako's World after {} min: health {}/{}, cold {}, Glass Man {}",
+            player.gameProfile.name, what, minutes, player.health, player.maxHealth, cold, glass)
     }
 
     /** Called when a player who died in a dream respawns. */

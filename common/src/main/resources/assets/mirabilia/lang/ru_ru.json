@@ -334,5 +334,16 @@
   "mirabilia.page.strings.palace": "Древние ораторы хранили свои речи в воображаемых зданиях, по мысли в каждой комнате. Я могу так же: в моём $(thing)чертоге разума/$ #{palace.rooms|комната|комнаты|комнат}, пронумерованных от 0 до #{palace.lastRoom}, и в каждой может храниться строка. Положенное туда остаётся, сквозь сон, смерть и сновидения, и принадлежит только мне.",
   "mirabilia.page.strings.memory_write": "Кладёт строку в заданную комнату моего чертога разума, заменяя то, что там было; $(l:casting/influences)$(thing)Ничто/$ освобождает комнату. Стоит #{palace.writeCost} $(item)Аметистовой пыли/$.",
   "mirabilia.page.strings.memory_read": "То, что хранится в заданной комнате моего чертога разума, или $(l:casting/influences)$(thing)Ничто/$, если она пуста.",
-  "mirabilia.page.strings.palace_size": "Сколько комнат моего чертога разума что-то хранят."
+  "mirabilia.page.strings.palace_size": "Сколько комнат моего чертога разума что-то хранят.",
+  "commands.mirabilia.wake.none": "Никто из них не спит",
+  "commands.mirabilia.wake.one": "%s разбужен",
+  "commands.mirabilia.wake.many": "Разбужено сновидцев: %s",
+  "mirabilia.dream.cold_warning": "Холод пробирает до костей. Согрейтесь, иначе вас выбросит",
+  "mirabilia.dream.why.stillness": "Вы замерли достаточно надолго, чтобы проснуться.",
+  "mirabilia.dream.why.pattern": "Пробуждение вытянуло вас из сна.",
+  "mirabilia.dream.why.cold": "Холод сна стал невыносим и выбросил вас наружу.",
+  "mirabilia.dream.why.cold_glass": "Прикосновение Стеклянного человека довершило холод сна и выбросило вас наружу.",
+  "mirabilia.dream.why.mask": "Стеклянный человек надел вас, как маску, и выбросил из сна.",
+  "mirabilia.dream.why.other": "Вас разбудили ото сна.",
+  "mirabilia.glass_man.no_shell": "Что-то последовало за вами из сна, но не нашло пустого жителя ближе %s блоков и рассеялось."
 }

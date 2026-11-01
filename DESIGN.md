@@ -734,6 +734,38 @@ String patterns (only while `stringPatterns` is on), each with its own switch (`
   room; 0.1 dust), **Memory's Purification** (`string/memory_read`, `ddwddwwq`; room → string or Null), **Palace
   Reflection** (`string/palace_size`, `ddwddwqw`; → rooms filled). Players only (`MishapNoMind` otherwise).
 
+### Creative knows the dream's spells
+
+In creative mode (the game mode itself, not `isCreative()`, which GameTest mock players always claim) every dream
+spell works without its scroll. Their book pages still unlock only with the scrolls.
+
+### Possession kept on the villager
+
+A possessed villager carries an entity tag (`mirabilia.possessed`) in its own saved data, so it stays possessed
+when saved and re-created (pickup mods, moving between worlds) even with a new UUID; the old world-level UUID list
+is still read, and marks villagers as it finds them. When the Glass Man follows a dreamer out but finds no
+Flay-Minded villager within 8 blocks of where they wake, they're told in chat; both outcomes are logged.
+
+### Cold fix (0.1.1)
+
+The dream's cold took 75 s unprotected instead of 5 minutes: 4 a tick against a limit of 6000. Cold is now counted
+in quarter-ticks (`DreamTicker.COLD_PER_TICK` = 4, limit = `dream.maxColdTicks` x 4), and fire's warmth, the
+Glass Man's touch and willing are scaled the same, so every configured number means ticks of unprotected cold.
+
+### Leaving the dream is logged; cold warning
+
+The dreamer also gets a chat line saying why they woke (the Glass Man's touch named when he was within 4 blocks of
+a cold exit). Every exit from the dream writes a server log line (`Dream.log`): who, how (stillness, pattern, cold, mask,
+other, or died with the damage type), minutes dreamed, health, cold and the Glass Man's distance; the on-screen
+messages aren't logged. A dreamer is warned once their cold passes `dream.coldWarning` (75%), and again only after
+it eases off. (Found while chasing "thrown out by one touch": the Glass Man's touch adds 30 s of cold, so late in
+a visit one touch can finish the cold off.)
+
+### Wake command
+
+`/mirabilia wake [players]` (permission level 2): wakes dreamers at once, as Wake would; without players, whoever
+runs it. A way out for a stuck player, and handy for testing.
+
 ### Sun sign, redrawn
 
 One spike points up the sky (towards the zenith morning and evening, turning over through south around noon),

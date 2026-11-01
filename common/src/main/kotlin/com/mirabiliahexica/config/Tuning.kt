@@ -80,6 +80,7 @@ object Tuning {
         val arrivalSpread by int("arrivalSpread", 4000, "Arrival spots are picked within this many blocks of the dream's centre")
         val stillTicks by int("stillTicks", 200, "Crouching still this long wakes a dreamer")
         val maxCold by int("maxColdTicks", 6000, "Ticks of cold before a dreamer is thrown out (5 minutes)")
+        val coldWarning by double("coldWarning", 0.75, "Share of the cold at which a dreamer is warned it's getting dangerous")
         val warmthRadius by int("warmthRadius", 3, "A fire this close warms a dreamer (blocks)")
         val warmingPerSecond by int("warmingPerSecond", 100, "Ticks of cold a fire takes away each second")
         val cameBackWrongMinutes by int("cameBackWrongMinutes", 20, "How long Came Back Wrong lasts (minutes)")

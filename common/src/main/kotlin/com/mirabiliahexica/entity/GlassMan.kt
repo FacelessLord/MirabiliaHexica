@@ -1,5 +1,6 @@
 package com.mirabiliahexica.entity
 
+import com.mirabiliahexica.dream.DreamTicker
 import at.petrak.hexcasting.api.HexAPI
 import at.petrak.hexcasting.api.misc.MediaConstants
 import at.petrak.hexcasting.common.lib.HexItems
@@ -171,7 +172,8 @@ class GlassMan(type: EntityType<out GlassMan>, level: Level) : Monster(type, lev
         val TOUCH_INTERVAL get() = Tuning.GlassMan.touchInterval
         val TOUCH_MEDIA get() = Tuning.GlassMan.touchMedia
         /** Thirty seconds of unprotected cold. */
-        val TOUCH_COLD get() = Tuning.GlassMan.touchCold
+        /** The touch's ticks of cold, in the dream's quarter-tick units. */
+        val TOUCH_COLD get() = Tuning.GlassMan.touchCold * DreamTicker.COLD_PER_TICK
         val TOUCH_DAMAGE get() = Tuning.GlassMan.touchDamage
         /** Three hearts: below this a touch takes the dreamer out of the dream instead. */
         val MASK_HEALTH get() = Tuning.GlassMan.maskHealth

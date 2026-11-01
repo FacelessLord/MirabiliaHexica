@@ -6,9 +6,10 @@ license = "MIT"
 modId = "mirabilia"
 version = "${version}"
 displayName = "Mirabilia Hexica"
+authors = "FacelessLord"
 description = "A dream world, ambient media and its machines, imbued lenses, armor and tools, and more for Hex Casting."
 logoFile = "assets/mirabilia/icon.png"
-displayURL = "https://modrinth.com/mod/mirabilia-hexica"
+displayURL = "https://modrinth.com/mod/mirabilia"
 
 [[dependencies.mirabilia]]
 modId = "forge"

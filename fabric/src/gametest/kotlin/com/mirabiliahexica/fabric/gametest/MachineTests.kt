@@ -56,12 +56,24 @@ class MachineTests {
         AmbientMedia.set(helper.level, chunk, 200 * DUST)
         MediaDischarger.second(helper.level, pos)
         check(AmbientMedia.get(helper.level, chunk) == 180 * DUST) { "took ${(200 * DUST - AmbientMedia.get(helper.level, chunk)) / DUST} dust, expected 20" }
+        // The arc picks a random living thing in reach, which may be a neighbouring test's mob: try until it's the pig
+        repeat(20) {
+            if (pig.health < pig.maxHealth) return@repeat
+            pig.invulnerableTime = 0
+            AmbientMedia.set(helper.level, chunk, 200 * DUST)
+            MediaDischarger.second(helper.level, pos)
+        }
         check(pig.health == pig.maxHealth - 2f) { "pig took ${pig.maxHealth - pig.health}, expected 2" }
         check(MediaDischarger.damage(1000 * DUST) == MediaDischarger.MAX_DAMAGE) { "damage isn't capped" }
-        // A killing arc
+        // A killing arc. Its target is random among living things in reach, and a neighbouring test's mob may be
+        // in reach too, so give it a few tries to find the pig
         pig.health = 1f
-        pig.invulnerableTime = 0 // arcs come a second apart; here the last one was a moment ago
-        MediaDischarger.second(helper.level, pos)
+        repeat(20) {
+            if (!pig.isAlive) return@repeat
+            pig.invulnerableTime = 0 // arcs come a second apart; here the last one was a moment ago
+            AmbientMedia.set(helper.level, chunk, 200 * DUST)
+            MediaDischarger.second(helper.level, pos)
+        }
         check(!pig.isAlive && MirabiliaAdvancements.has(watcher, "high_voltage")) { "no High Voltage when the arc killed" }
         // Powered, it rests
         val before = AmbientMedia.get(helper.level, chunk)

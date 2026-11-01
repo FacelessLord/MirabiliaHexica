@@ -24,6 +24,7 @@
       { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.MachineTests" },
       { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.AdvancementTests" },
       { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.MacroTests" },
+      { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.AuditTests" },
       { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.TrinketTests" },
       { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.DreamLoreTests" },
       { "adapter": "kotlin", "value": "com.mirabiliahexica.fabric.gametest.SpawnEggTests" },

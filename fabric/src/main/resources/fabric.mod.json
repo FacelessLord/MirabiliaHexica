@@ -4,7 +4,7 @@
   "version": "${version}",
   "name": "Mirabilia Hexica",
   "description": "A dream world, ambient media and its machines, imbued lenses, armor and tools, and more for Hex Casting.",
-  "authors": [],
+  "authors": ["FacelessLord"],
   "license": "MIT",
   "environment": "*",
   "entrypoints": {
@@ -34,6 +34,6 @@
   },
   "icon": "assets/mirabilia/icon.png",
   "contact": {
-    "homepage": "https://modrinth.com/mod/mirabilia-hexica"
+    "homepage": "https://modrinth.com/mod/mirabilia"
   }
 }

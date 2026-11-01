@@ -52,9 +52,10 @@ object DreamRules {
                 EventResult.pass()
             }
         }
-        EntityEvent.LIVING_DEATH.register { entity, _ ->
+        EntityEvent.LIVING_DEATH.register { entity, source ->
             if (entity is ServerPlayer && Dream.isDreaming(entity)) {
                 val visits = DreamVisits.get(entity.server)
+                Dream.log(entity, "died (${source.msgId})", visits[entity.uuid])
                 visits.end(entity.uuid)
                 visits.markDied(entity.uuid)
                 // Nothing is lost to the dream: inventory and experience wait for them to respawn (bauble
